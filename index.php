@@ -1,26 +1,29 @@
 
 <?php
 
+    var_dump($_GET);
     
+    $passLength = intval($_GET['pass-length']);
+    var_dump($passLength);
+
+    $charactersDb = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
+    $password = ''; 
+
+    for ($i = 0; $i < $passLength; $i++) {
+        $randomCharacter = $charactersDb[rand(0, strlen($charactersDb) - 1)];
+        var_dump($randomCharacter);
+
+        $password .= $randomCharacter;
+    }
     
-    function randomPassword() {
-        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890';
-        $pass = array(); 
-        $alphaLength = strlen($alphabet) - 1; 
-        $length = strlen($_GET["password-length"]);
-        for ($i = 0; $i < $length; $i++) {
-            $n = rand(0, $alphaLength);
-            $pass[] = $alphabet[$n];
-        }
-        return implode($pass); 
+     var_dump($password);
 
         
-    }
+    
 
    
 
-
-
+    
 ?>
 
 
